@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "type": "video",
+      "title": {
+        "en": "\"Nessun dorma\" — live recording",
+        "de": "\"Nessun dorma\" — Live-Mitschnitt",
+        "it": "\"Nessun dorma\" — registrazione dal vivo"
+      },
+      "youtube_id": ""
+    },
+    {
+      "type": "audio",
+      "title": {
+        "en": "\"Che gelida manina\" — La Bohème",
+        "de": "\"Che gelida manina\" — La Bohème",
+        "it": "\"Che gelida manina\" — La Bohème"
+      },
+      "embed_url": ""
+    }
+  ]
+}

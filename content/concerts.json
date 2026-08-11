@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "date": "2026-10-04",
+      "city": "Vienna",
+      "venue": "Musikverein — Brahms-Saal",
+      "program": {
+        "en": "Lied recital — Schubert & Wolf",
+        "de": "Liederabend — Schubert & Wolf",
+        "it": "Recital liederistico — Schubert e Wolf"
+      },
+      "ticket_url": ""
+    },
+    {
+      "date": "2026-11-15",
+      "city": "Graz",
+      "venue": "Opernhaus Graz",
+      "program": {
+        "en": "La Bohème — Rodolfo",
+        "de": "La Bohème — Rodolfo",
+        "it": "La Bohème — Rodolfo"
+      },
+      "ticket_url": ""
+    }
+  ]
+}

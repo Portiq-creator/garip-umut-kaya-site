@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "tr"
+
+collections:
+  - name: "ayarlar"
+    label: "Genel Ayarlar"
+    files:
+      - name: "settings"
+        label: "İletişim & Site Bilgileri"
+        file: "content/settings.json"
+        fields:
+          - { label: "Sanatçı Adı", name: "artist_name", widget: "string" }
+          - label: "Unvan (Tenor / Soprano vb.)"
+            name: "tagline"
+            widget: "object"
+            fields:
+              - { label: "İngilizce", name: "en", widget: "string" }
+              - { label: "Almanca", name: "de", widget: "string" }
+              - { label: "İtalyanca", name: "it", widget: "string" }
+          - { label: "E-posta", name: "email", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string", required: false }
+          - { label: "Şehir / Konum", name: "location", widget: "string" }
+          - { label: "Instagram Bağlantısı", name: "instagram_url", widget: "string", required: false }
+          - { label: "YouTube Bağlantısı", name: "youtube_url", widget: "string", required: false }
+          - { label: "Facebook Bağlantısı", name: "facebook_url", widget: "string", required: false }
+
+  - name: "biyografi"
+    label: "Biyografi"
+    files:
+      - name: "bio"
+        label: "Biyografi Metni"
+        file: "content/bio.json"
+        fields:
+          - { label: "İngilizce", name: "en", widget: "text" }
+          - { label: "Almanca", name: "de", widget: "text" }
+          - { label: "İtalyanca", name: "it", widget: "text" }
+
+  - name: "konserler"
+    label: "Konserler"
+    files:
+      - name: "concerts"
+        label: "Konser Takvimi"
+        file: "content/concerts.json"
+        fields:
+          - label: "Konserler"
+            name: "items"
+            widget: "list"
+            label_singular: "Konser"
+            summary: "{{date}} — {{city}}"
+            fields:
+              - { label: "Tarih", name: "date", widget: "date", date_format: "YYYY-MM-DD" }
+              - { label: "Şehir", name: "city", widget: "string" }
+              - { label: "Mekan", name: "venue", widget: "string" }
+              - label: "Program"
+                name: "program"
+                widget: "object"
+                fields:
+                  - { label: "İngilizce", name: "en", widget: "string" }
+                  - { label: "Almanca", name: "de", widget: "string" }
+                  - { label: "İtalyanca", name: "it", widget: "string" }
+              - { label: "Bilet Bağlantısı", name: "ticket_url", widget: "string", required: false }
+
+  - name: "kayitlar"
+    label: "Ses & Video Kayıtları"
+    files:
+      - name: "media"
+        label: "Kayıt Listesi"
+        file: "content/media.json"
+        fields:
+          - label: "Kayıtlar"
+            name: "items"
+            widget: "list"
+            label_singular: "Kayıt"
+            summary: "{{title.en}}"
+            fields:
+              - label: "Tür"
+                name: "type"
+                widget: "select"
+                options: [{ label: "Video (YouTube)", value: "video" }, { label: "Ses", value: "audio" }]
+              - label: "Başlık"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "İngilizce", name: "en", widget: "string" }
+                  - { label: "Almanca", name: "de", widget: "string" }
+                  - { label: "İtalyanca", name: "it", widget: "string" }
+              - label: "YouTube Video ID (yalnızca video için — örn. dQw4w9WgXcQ)"
+                name: "youtube_id"
+                widget: "string"
+                required: false
+              - label: "Ses Dosyası Bağlantısı (yalnızca ses için)"
+                name: "embed_url"
+                widget: "string"
+                required: false

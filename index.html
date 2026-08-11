@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garip Umut Kaya — Tenor</title>
+<meta name="description" content="Garip Umut Kaya, tenor. Concerts, recitals, opera productions and booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Curtain intro -->
+<div class="curtain" id="curtain" aria-hidden="true">
+  <div class="curtain__panel"></div>
+  <div class="curtain__panel"></div>
+</div>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <div class="nav__name">Garip Umut Kaya</div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#concerts" data-i18n="nav.concerts">Concerts</a></li>
+      <li><a href="#media" data-i18n="nav.media">Media</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li class="lang-switch" id="langSwitch">
+        <button data-lang="en" class="active">EN</button><button data-lang="de">DE</button><button data-lang="it">IT</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow" data-i18n="hero.eyebrow">Opera &amp; Concert</span>
+  <h1 class="hero__name">Garip Umut Kaya</h1>
+  <div class="hero__rule"></div>
+  <p class="hero__tagline" id="heroTagline">Tenor</p>
+  <p class="hero__translations">Tenor · Tenor · Tenore</p>
+  <div class="hero__scroll" data-i18n="hero.scroll">Scroll</div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="libretto-head">
+      <h2 class="libretto-head__main" data-i18n="about.title">Biography</h2>
+      <div class="libretto-head__translations">
+        <span><b>DE</b>Biografie</span>
+        <span><b>IT</b>Biografia</span>
+      </div>
+    </div>
+    <div class="about__body" id="bioText">
+      <p>Loading…</p>
+    </div>
+  </div>
+</section>
+
+<section id="concerts" class="alt">
+  <div class="container">
+    <div class="libretto-head">
+      <h2 class="libretto-head__main" data-i18n="concerts.title">Upcoming Concerts</h2>
+      <div class="libretto-head__translations">
+        <span><b>DE</b>Kommende Konzerte</span>
+        <span><b>IT</b>Prossimi concerti</span>
+      </div>
+    </div>
+    <ul class="concert-list" id="concertList">
+      <li class="concert--empty" data-i18n="concerts.empty">No concerts announced at the moment.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="media">
+  <div class="container">
+    <div class="libretto-head">
+      <h2 class="libretto-head__main" data-i18n="media.title">Recordings</h2>
+      <div class="libretto-head__translations">
+        <span><b>DE</b>Aufnahmen</span>
+        <span><b>IT</b>Registrazioni</span>
+      </div>
+    </div>
+    <div class="media-grid" id="mediaGrid"></div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="container">
+    <div class="libretto-head">
+      <h2 class="libretto-head__main" data-i18n="contact.title">Booking &amp; Contact</h2>
+      <div class="libretto-head__translations">
+        <span><b>DE</b>Buchung &amp; Kontakt</span>
+        <span><b>IT</b>Prenotazioni &amp; Contatti</span>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="contact__details">
+        <p data-i18n="contact.intro">For concert engagements, recitals, opera productions and general inquiries, please reach out directly or use the form.</p>
+        <p><a id="contactEmail" href="mailto:info@garipumutkaya.com">info@garipumutkaya.com</a></p>
+        <p id="contactLocation">Vienna, Austria</p>
+      </div>
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-field">
+          <label for="name" data-i18n="contact.form.name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email" data-i18n="contact.form.email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="message" data-i18n="contact.form.message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn" data-i18n="contact.form.submit">Send</button>
+        <p class="form-note" data-i18n="contact.form.note">Sent directly — no account or newsletter sign-up.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>&copy; <span id="year"></span> Garip Umut Kaya</div>
+  <div class="footer__social" id="footerSocial"></div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
