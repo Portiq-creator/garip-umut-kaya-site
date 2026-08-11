@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -39,7 +40,6 @@
   <h1 class="hero__name">Garip Umut Kaya</h1>
   <div class="hero__rule"></div>
   <p class="hero__tagline" id="heroTagline">Tenor</p>
-  <p class="hero__translations">Tenor · Tenor · Tenore</p>
   <div class="hero__scroll" data-i18n="hero.scroll">Scroll</div>
 </header>
 
@@ -129,5 +129,18 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    netlifyIdentity.on("init", user => {
+      if (user) {
+        // already logged in — send straight to the content panel
+        window.location.href = "/admin/";
+      }
+    });
+    netlifyIdentity.on("login", () => {
+      window.location.href = "/admin/";
+    });
+  }
+</script>
 </body>
 </html>
