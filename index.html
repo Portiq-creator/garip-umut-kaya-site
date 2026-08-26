@@ -35,20 +35,28 @@
 </nav>
 
 <header class="hero">
+  <div class="hero__portrait" id="heroPortrait" hidden>
+    <img id="heroPortraitImg" src="" alt="">
+  </div>
   <span class="eyebrow" data-i18n="hero.eyebrow">Opera &amp; Concert</span>
   <h1 class="hero__name">Garip Umut Kaya</h1>
   <div class="hero__rule"></div>
   <p class="hero__tagline" id="heroTagline">Tenor</p>
+  <div class="hero__scroll" data-i18n="hero.scroll">Scroll</div>
+</header>
 
 <section id="about">
   <div class="container">
     <div class="libretto-head">
       <h2 class="libretto-head__main" data-i18n="about.title">Biography</h2>
-      <div class="libretto-head__translations">
-      </div>
     </div>
-    <div class="about__body" id="bioText">
-      <p>Loading…</p>
+    <div class="about__layout" id="aboutLayout">
+      <div class="about__image" id="aboutImage" hidden>
+        <img id="aboutImageImg" src="" alt="">
+      </div>
+      <div class="about__body" id="bioText">
+        <p>Loading…</p>
+      </div>
     </div>
   </div>
 </section>
@@ -57,8 +65,6 @@
   <div class="container">
     <div class="libretto-head">
       <h2 class="libretto-head__main" data-i18n="concerts.title">Upcoming Concerts</h2>
-      <div class="libretto-head__translations">
-      </div>
     </div>
     <ul class="concert-list" id="concertList">
       <li class="concert--empty" data-i18n="concerts.empty">No concerts announced at the moment.</li>
@@ -70,8 +76,6 @@
   <div class="container">
     <div class="libretto-head">
       <h2 class="libretto-head__main" data-i18n="media.title">Recordings</h2>
-      <div class="libretto-head__translations">
-      </div>
     </div>
     <div class="media-grid" id="mediaGrid"></div>
   </div>
@@ -81,8 +85,6 @@
   <div class="container">
     <div class="libretto-head">
       <h2 class="libretto-head__main" data-i18n="contact.title">Booking &amp; Contact</h2>
-      <div class="libretto-head__translations">
-      </div>
     </div>
     <div class="contact">
       <div class="contact__details">

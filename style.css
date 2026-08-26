@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Garip Umut Kaya — Opera site
+   Palette: dim theater interior. Umber-black stage, oxblood velvet,
+   aged brass leaf used only as a signature accent.
+   ========================================================================== */
+
+:root{
+  --bg: #1B120F;
+  --surface: #241813;
+  --surface-2: #2E1F19;
+  --ink: #F2E9DC;
+  --muted: #B7A493;
+  --muted-2: #8A7768;
+  --gold: #C7A159;
+  --gold-dim: #8F793F;
+  --wine: #7A1F2B;
+  --wine-bright: #9C2A38;
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Newsreader", Georgia, serif;
+  --font-utility: "Inter", -apple-system, sans-serif;
+
+  --rule: 1px solid rgba(199,161,89,0.28);
+  --container: 920px;
+  --pad: clamp(20px, 5vw, 64px);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size: 18px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(199,161,89,0.10), transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+
+a{ color:var(--gold); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:0.01em;
+  margin:0;
+  color:var(--ink);
+}
+
+.eyebrow{
+  font-family:var(--font-utility);
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:0.22em;
+  color:var(--gold);
+  font-weight:600;
+}
+
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 var(--pad);
+  position:relative;
+  z-index:1;
+}
+
+/* ---------- Curtain intro ---------- */
+.curtain{
+  position:fixed; inset:0; z-index:50;
+  display:flex; pointer-events:none;
+}
+.curtain__panel{
+  flex:1;
+  background:
+    linear-gradient(180deg, var(--wine) 0%, #4A141C 60%, #300D12 100%);
+  box-shadow: inset -8px 0 24px rgba(0,0,0,0.35);
+}
+.curtain__panel + .curtain__panel{
+  box-shadow: inset 8px 0 24px rgba(0,0,0,0.35);
+}
+.curtain--open .curtain__panel:first-child{
+  transform: translateX(-101%);
+  transition: transform 1.1s cubic-bezier(.65,0,.35,1);
+}
+.curtain--open .curtain__panel:last-child{
+  transform: translateX(101%);
+  transition: transform 1.1s cubic-bezier(.65,0,.35,1);
+}
+@media (prefers-reduced-motion: reduce){
+  .curtain{ display:none; }
+}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:20;
+  background:rgba(27,18,15,0.86);
+  backdrop-filter: blur(6px);
+  border-bottom: var(--rule);
+}
+.nav__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:16px; padding-bottom:16px;
+}
+.nav__name{
+  font-family:var(--font-display);
+  font-size:18px;
+  letter-spacing:0.03em;
+}
+.nav__links{
+  display:flex; gap:28px; align-items:center;
+  font-family:var(--font-utility);
+  font-size:13px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  list-style:none; margin:0; padding:0;
+}
+.nav__links a{ color:var(--muted); }
+.nav__links a:hover{ color:var(--gold); text-decoration:none; }
+
+.lang-switch{
+  display:flex; gap:2px;
+  font-family:var(--font-utility);
+  font-size:12px; letter-spacing:0.05em;
+}
+.lang-switch button{
+  background:none; border:1px solid rgba(199,161,89,0.3);
+  color:var(--muted); padding:4px 9px; cursor:pointer;
+  font-family:inherit; font-size:inherit;
+}
+.lang-switch button:first-child{ border-radius:3px 0 0 3px; }
+.lang-switch button:last-child{ border-radius:0 3px 3px 0; }
+.lang-switch button.active{
+  background:var(--gold); color:#1B120F; border-color:var(--gold);
+  font-weight:600;
+}
+
+.nav__toggle{ display:none; background:none; border:0; color:var(--ink); font-size:24px; cursor:pointer; }
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height: 88vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding: 64px var(--pad) 60px;
+}
+
+.hero__portrait{
+  width: 168px; height: 168px;
+  border-radius:50%;
+  overflow:hidden;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(199,161,89,0.12), 0 20px 40px rgba(0,0,0,0.4);
+  margin-bottom:32px;
+}
+.hero__portrait img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+.hero__rule{
+  width:64px; height:1px; background:var(--gold-dim); margin: 22px 0;
+}
+.hero__name{
+  font-size: clamp(44px, 8vw, 92px);
+  line-height:1.02;
+}
+.hero__tagline{
+  font-family:var(--font-utility);
+  text-transform:uppercase;
+  letter-spacing:0.32em;
+  font-size:13px;
+  color:var(--muted);
+  margin-top:18px;
+}
+.hero__scroll{
+  margin-top:56px;
+  font-family:var(--font-utility);
+  font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--muted-2);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.hero__scroll::after{
+  content:""; width:1px; height:34px; background:var(--gold-dim);
+  animation: pulse-line 2.2s ease-in-out infinite;
+}
+@keyframes pulse-line{ 0%,100%{opacity:.25} 50%{opacity:1} }
+
+/* ---------- Sections (libretto header signature) ---------- */
+section{ padding: 96px var(--pad); position:relative; z-index:1; }
+section.alt{ background:var(--surface); }
+
+.libretto-head{ margin-bottom:44px; max-width:640px; }
+.libretto-head__main{
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+/* ---------- About ---------- */
+.about__layout{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap:52px;
+  align-items:start;
+  max-width:920px;
+}
+.about__layout.no-image{
+  grid-template-columns: 1fr;
+}
+.about__image{
+  width:100%;
+  aspect-ratio: 3/4;
+  border-radius:2px;
+  overflow:hidden;
+  border: 1px solid rgba(199,161,89,0.25);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+.about__image img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.about__body{
+  color:var(--muted);
+  font-size:19px;
+}
+.about__body p + p{ margin-top:1.2em; }
+
+/* ---------- Concerts (program listing) ---------- */
+.concert-list{ list-style:none; margin:0; padding:0; max-width:760px; }
+.concert{
+  display:grid;
+  grid-template-columns: 120px 1fr auto;
+  gap:20px;
+  align-items:baseline;
+  padding:22px 0;
+  border-bottom: var(--rule);
+}
+.concert:first-child{ border-top: var(--rule); }
+.concert__date{
+  font-family:var(--font-utility);
+  font-size:13px; letter-spacing:0.05em; color:var(--gold);
+  text-transform:uppercase;
+}
+.concert__info h3{ font-size:20px; margin-bottom:4px; }
+.concert__venue{ color:var(--muted); font-size:15px; }
+.concert__link{
+  font-family:var(--font-utility);
+  font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+  white-space:nowrap;
+}
+.concert--empty{
+  color:var(--muted-2); font-style:italic; padding:22px 0; border-top:var(--rule);
+}
+
+/* ---------- Media ---------- */
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:32px;
+}
+.media-card{
+  background:var(--surface-2);
+  border:1px solid rgba(199,161,89,0.14);
+  border-radius:4px;
+  overflow:hidden;
+}
+.media-card__frame{
+  aspect-ratio:16/9; width:100%;
+  background:#150E0B;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted-2); font-family:var(--font-utility); font-size:13px;
+}
+.media-card__frame iframe, .media-card__frame audio{ width:100%; height:100%; border:0; }
+.media-card__title{
+  padding:16px 18px;
+  font-family:var(--font-utility);
+  font-size:14px; color:var(--muted);
+}
+
+/* ---------- Contact ---------- */
+.contact{ display:grid; grid-template-columns: 1fr 1.1fr; gap:60px; }
+.contact__details p{ color:var(--muted); }
+.contact__details a{ font-family:var(--font-utility); }
+
+.form-field{ margin-bottom:20px; }
+.form-field label{
+  display:block; font-family:var(--font-utility); font-size:12px;
+  text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:8px;
+}
+.form-field input, .form-field textarea{
+  width:100%;
+  background:var(--surface-2);
+  border:1px solid rgba(199,161,89,0.22);
+  color:var(--ink);
+  padding:12px 14px;
+  font-family:var(--font-body);
+  font-size:16px;
+  border-radius:2px;
+}
+.form-field textarea{ min-height:120px; resize:vertical; }
+.btn{
+  font-family:var(--font-utility);
+  text-transform:uppercase; letter-spacing:0.1em; font-size:13px;
+  background:var(--gold); color:#1B120F; border:0;
+  padding:13px 28px; border-radius:2px; cursor:pointer; font-weight:600;
+}
+.btn:hover{ background:#D9B36C; }
+.form-note{ font-family:var(--font-utility); font-size:12px; color:var(--muted-2); margin-top:10px; }
+
+/* ---------- Footer ---------- */
+footer{
+  padding:44px var(--pad);
+  border-top: var(--rule);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  font-family:var(--font-utility); font-size:12px; color:var(--muted-2);
+}
+.footer__social{ display:flex; gap:16px; }
+.footer__social a{ color:var(--muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px){
+  .nav__links{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:flex-start; gap:0;
+    background:var(--bg); border-bottom:var(--rule);
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+  }
+  .nav__links.open{ max-height:320px; }
+  .nav__links li{ width:100%; padding:14px var(--pad); border-top:1px solid rgba(199,161,89,0.1); }
+  .nav__toggle{ display:block; }
+  .contact{ grid-template-columns:1fr; }
+  .concert{ grid-template-columns:1fr; gap:6px; }
+  .about__layout{ grid-template-columns:1fr; }
+  .about__image{ max-width:220px; aspect-ratio:1/1; margin:0 auto; }
+  .hero__portrait{ width:132px; height:132px; }
+}
+
+[data-i18n], [data-i18n-html]{ }
+[hidden]{ display:none !important; }
